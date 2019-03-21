@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const createError = require('http-errors');
 const config = require('./config');
+const User = require('./user.js');
 
 /**
  * MongoDB setup
@@ -55,3 +56,18 @@ app.use(function(err, req, res){
 http.createServer(app).listen(config.web.port, function() {
   console.log('Application started and listening on port ' + config.web.port + '!');
 });
+
+
+app.post('/api/user', function(req, res, next) {
+  User.findOne({'id': req.body.id}, function(err, users){
+    if(err){
+      console.log(err);
+      return next(err);
+    } else{
+      console.log(users);
+      res.json(users)
+    }
+  })
+})
+
+module.export = app;
