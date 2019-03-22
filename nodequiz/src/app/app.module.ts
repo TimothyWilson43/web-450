@@ -20,7 +20,7 @@ import { AppRoutes } from './app.routing';
     BaseLayoutComponent,
     FooterComponent,
     HeaderComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
   ],
   imports: [
     BrowserModule,
