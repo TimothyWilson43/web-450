@@ -11,7 +11,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const createError = require('http-errors');
 const config = require('./config');
-const User = require('./user.js');
+
+let User = require('./models/user');
 
 /**
  * MongoDB setup
@@ -30,7 +31,7 @@ let app = express();
  * Express using statements
  */
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended': 'false'}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(cors());
 
@@ -40,34 +41,18 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../dist/nodequiz')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodequiz')));
 
-
-/**
- * Invalid API calls request handler
- */
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-app.use(function(err, req, res){
-  res.status(err.status || 500);
-  res.sendStatus(err.status);
-});
-
-http.createServer(app).listen(config.web.port, function() {
-  console.log('Application started and listening on port ' + config.web.port + '!');
-});
-
-
 app.post('/api/user', function(req, res, next) {
-  User.findOne({'id': req.body.id}, function(err, users){
-    if(err){
+  User.findOne({'id': req.body.id}, function(err, user) {
+    if (err) {
       console.log(err);
       return next(err);
-    } else{
-      console.log(users);
-      res.json(users)
+    } else {
+      console.log(user);
+      return res.json(user);
     }
   })
 })
 
-module.export = app;
+http.createServer(app).listen(config.web.port, function() {
+  console.log('Application started and listening on port ' + config.web.port + '!');
+});
