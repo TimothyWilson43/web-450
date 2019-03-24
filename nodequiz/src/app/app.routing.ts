@@ -27,8 +27,4 @@ export const AppRoutes: Routes = [
       }
     ]
   },
-  {
-    path: '**',
-    redirectTo: 'session/404'
-  }
 ];
