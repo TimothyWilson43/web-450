@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-qzselection',
@@ -10,29 +9,17 @@ import { FormGroup } from '@angular/forms';
 })
 export class QzselectionComponent implements OnInit {
 
-  form: FormGroup;
+  quizzes: any;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+    this.http.get('/api/quiz').subscribe(data => {
+      this.quizzes = data;
+      console.log(this.quizzes);
+    }, err => {
+      console.log(err);
+    })
+  }
 
   ngOnInit() {
   }
-
-
-Qzselection() {
-  const quiz1 = this.form.contains['quiz1'].value;
-
-  console.log('quiz1');
-
-  this.http.post('/api/quizzes', {
-    quiz1: quiz1
-  }).subscribe(res => {
-    this.router.navigate(['/'])
-  }, err => {
-    console.log(err);
-  });
-}
-
-goBack() {
-  this.router.navigate(['/']);
-}
 }

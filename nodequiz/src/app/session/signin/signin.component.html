@@ -1,4 +1,5 @@
-
+<div *ngIf='errMessage'>  <h2>{{ errMessage }}</h2>
+    </div>
 <form (ngSubmit)="signin()" [formGroup]="form" #userForm>
   <input type="text" [formControl]="form.controls['id']" placeholder="ID" />
   
@@ -6,6 +7,6 @@
     ID is a required field.
   </small>
 
-  <button routerLink="/session/qzselection">Sign In</button>
+  <button type="submit">Sign In</button>
 
 </form>

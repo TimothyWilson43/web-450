@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class SigninComponent implements OnInit {
 
   form: FormGroup;
+  errMessage: String;
 
   constructor(private http: HttpClient, private router: Router, private fb: FormBuilder) { }
 
@@ -21,14 +22,21 @@ export class SigninComponent implements OnInit {
   }
 
   signin() {
-    const id = this.form.contains['id'].value;
+    const id = this.form.controls['id'].value;
 
     console.log('id');
 
     this.http.post('/api/user', {
       id: id
     }).subscribe(res => {
-      this.router.navigate(['/'])
+      console.log(res)
+      if (res){
+        this.router.navigate(['/session/qzselection'])
+      }
+      else{
+        this.errMessage = 'Bad ID'
+        this.router.navigate(['/session/signin'])
+      }
     }, err => {
       console.log(err);
     });

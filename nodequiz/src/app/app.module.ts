@@ -25,7 +25,7 @@ import { AppRoutes } from './app.routing';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: true }),
+    RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false }),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

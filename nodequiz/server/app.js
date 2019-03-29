@@ -13,6 +13,7 @@ const createError = require('http-errors');
 const config = require('./config');
 
 let User = require('./models/user');
+let Quiz = require('./models/quiz')
 
 /**
  * MongoDB setup
@@ -49,6 +50,18 @@ app.post('/api/user', function(req, res, next) {
     } else {
       console.log(user);
       return res.json(user);
+    }
+  })
+})
+
+app.get('/api/quiz', function(req, res, next) {
+  Quiz.find({}, 'name', function(err, quiz){
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(quiz);
+      return res.json(quiz);
     }
   })
 })

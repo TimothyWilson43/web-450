@@ -1,13 +1,12 @@
 <p>
-  Quiz Selection Page
+    Quiz Selection Page
 </p>
 
-<p>
-    <button>Select Quiz 1</button>
-</p>
-<p>
-    <button>Select Quiz 2</button>
-</p>
-<p>
-    <button>Select Quiz 3</button>
-</p>
+<ul>
+    <li *ngFor="let quiz of quizzes">
+        {{ quiz.name }}
+    </li>
+</ul>
+<button>{{ quizzes }}</button>
+
+
