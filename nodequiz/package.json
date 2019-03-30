@@ -30,6 +30,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "http-errors": "^1.7.2",
+    "mat-video": "^2.6.0",
     "mongoose": "^5.4.19",
     "morgan": "^1.9.1",
     "rxjs": "~6.3.3",
