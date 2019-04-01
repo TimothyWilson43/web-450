@@ -66,6 +66,18 @@ app.get('/api/quiz', function(req, res, next) {
   })
 })
 
+app.get('/api/quiz', function(req, res, next){
+  Quiz.findOne({'quiz1': req.body.id}, function(err, quiz1) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(quiz1);
+      return res.json(quiz1);
+    }
+  })
+})
+
 http.createServer(app).listen(config.web.port, function() {
   console.log('Application started and listening on port ' + config.web.port + '!');
 });

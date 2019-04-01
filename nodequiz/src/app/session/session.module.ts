@@ -12,11 +12,12 @@ import { SigninComponent } from './signin/signin.component';
 
 import { SessionRoutes } from './session.routing';
 import { QzselectionComponent } from './qzselection/qzselection.component';
+import { QuizpageComponent } from './quizpage/quizpage.component';
 
 @NgModule({
   declarations: [
     NotFoundComponent, 
-    SigninComponent, QzselectionComponent
+    SigninComponent, QzselectionComponent, QuizpageComponent
   ],
   imports: [
     CommonModule,

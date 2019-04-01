@@ -6,6 +6,7 @@ import { Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SigninComponent } from './signin/signin.component';
 import { QzselectionComponent } from './qzselection/qzselection.component';
+import { QuizpageComponent } from './quizpage/quizpage.component';
 
 export const SessionRoutes: Routes = [
   {
@@ -22,6 +23,10 @@ export const SessionRoutes: Routes = [
       {
         path: 'qzselection',
         component: QzselectionComponent
+      },
+      {
+        path: 'quizpage',
+        component: QuizpageComponent
       }
       
     ]
