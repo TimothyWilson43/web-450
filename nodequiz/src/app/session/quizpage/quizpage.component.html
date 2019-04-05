@@ -4,7 +4,16 @@
 
 
 <ul>
-  <li *ngFor="let quiz of quizzes">
-      {{ quiz.text }}
+  <li *ngFor="let question of quiz.questions">
+      {{ question.text }}
+      <span *ngFor="let answer of question.answers">
+        <mat-button-radio>
+        {{ answer.text }}
+      </mat-button-radio>
+
+   </span>
+     
+
   </li>
+
 </ul>

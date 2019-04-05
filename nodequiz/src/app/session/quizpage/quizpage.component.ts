@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -9,13 +9,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class QuizpageComponent implements OnInit {
 
-  question: any;
-  text: any;
+  quizId: String;
+  quiz: any;
 
-  constructor(private http: HttpClient, private router: Router) {
-    this.http.get('/api/quiz').subscribe(data => {
-      this.text = data;
-      console.log(this.question);
+  constructor(private http: HttpClient, private router: Router, private route:ActivatedRoute) {
+    this.quizId = this.route.snapshot.paramMap.get('id')
+    this.http.get('/api/quizpage/' + this.quizId).subscribe(data => {
+      this.quiz = data;
+      console.log(this.quiz);
     }, err => {
       console.log(err);
     })

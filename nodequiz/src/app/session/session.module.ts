@@ -29,7 +29,7 @@ import { QuizpageComponent } from './quizpage/quizpage.component';
     MatToolbarModule,
     MatCardModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class SessionModule { }

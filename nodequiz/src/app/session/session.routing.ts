@@ -25,7 +25,7 @@ export const SessionRoutes: Routes = [
         component: QzselectionComponent
       },
       {
-        path: 'quizpage',
+        path: 'quizpage/:id',
         component: QuizpageComponent
       }
       

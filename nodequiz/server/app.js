@@ -66,8 +66,8 @@ app.get('/api/quiz', function(req, res, next) {
   })
 })
 
-app.get('/api/quiz', function(req, res, next){
-  Quiz.findOne({'quiz1': req.body.id}, function(err, quiz1) {
+app.get('/api/quizpage/:id', function(req, res, next){
+  Quiz.findOne({'_id': req.params.id}, function(err, quiz1) {
     if (err) {
       console.log(err);
       return next(err);
