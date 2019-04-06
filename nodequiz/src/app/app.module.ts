@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+
 import { AppComponent } from './app.component';
 import { BaseLayoutComponent } from './shared';
 import { FooterComponent } from './shared';
@@ -29,7 +30,7 @@ import { AppRoutes } from './app.routing';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FlexLayoutModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
