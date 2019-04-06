@@ -3,8 +3,10 @@
 </p>
 
 <ul>
-    <li *ngFor="let quiz of quizzes"><a routerLink="/sessiopn/quizpage/{{ quiz._id }}">
-        {{ quiz.name }}</a>
+    <li *ngFor="let quiz of quizzes">
+    	<a routerLink="/session/quizpage/{{ quiz._id }}">
+        	{{ quiz.name }}
+    	</a>
     </li>
 </ul>
 

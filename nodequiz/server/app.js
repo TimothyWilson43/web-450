@@ -55,7 +55,7 @@ app.post('/api/user', function(req, res, next) {
 })
 
 app.get('/api/quiz', function(req, res, next) {
-  Quiz.find({}, 'name', function(err, quiz){
+  Quiz.find({}, '_id name', function(err, quiz){
     if (err) {
       console.log(err);
       return next(err);
