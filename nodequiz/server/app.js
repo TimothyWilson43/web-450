@@ -78,6 +78,18 @@ app.get('/api/quizpage/:id', function(req, res, next){
   })
 })
 
+app.post('/api/compile'), function(req, res, next){
+  Quiz.post({}, function(err, quiz){
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(quiz);
+      return res.json(quiz);
+    }
+  })
+}
+
 http.createServer(app).listen(config.web.port, function() {
   console.log('Application started and listening on port ' + config.web.port + '!');
 });

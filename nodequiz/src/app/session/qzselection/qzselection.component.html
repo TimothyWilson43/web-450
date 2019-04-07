@@ -4,25 +4,29 @@
 
 <ul>
     <li *ngFor="let quiz of quizzes">
-    	<a routerLink="/session/quizpage/{{ quiz._id }}">
-        	{{ quiz.name }}
-    	</a>
+        <a routerLink="/session/quizpage/{{ quiz._id }}">
+            {{ quiz.name }}
+        </a>
     </li>
 </ul>
 
-<button class="openVideo">DevOps Thoughts Video</button>
- <video controls reload="none" style="width:1000px;">
-    <source src="./assets/videos/Devops-Thoughts.mp4" type="video/mp4" />
-</video>
+<button (click)="section['first'] = !section['first']">DevOps Thoughts Video</button>
+<div *ngIf="section['first']">
+    <video controls reload="none" style="width:1000px;">
+        <source src="./assets/videos/Devops-Thoughts.mp4" type="video/mp4" />
+    </video>
+</div>
 
-<button class="openVideo"> More DevOps Thoughts Video</button>
+<button (click)="section['second'] = !section['second']"> More DevOps Thoughts Video</button>
+<div *ngIf="section['second']">
+    <video controls reload="none" style="width:1000px;">
+        <source src="./assets/videos/More_DevOps_Thoughts.mp4" type="video/mp4" />
+    </video>
+</div>
 
-<video controls reload="none" style="width:1000px;">
-    <source src="./assets/videos/More_DevOps_Thoughts.mp4" type="video/mp4" />
-</video>
-
-<button class="openVideo"> APIs/Databases Video</button>
-
-<video controls reload="none" style="width:1000px;">
-    <source src="./assets/videos/APIs-Databases.mp4" type="video/mp4" />
-</video>
+<button (click)="section['third'] = !section['third']"> APIs/Databases Video</button>
+<div *ngIf="section['third']">
+    <video controls reload="none" style="width:1000px;">
+        <source src="./assets/videos/APIs-Databases.mp4" type="video/mp4" />
+    </video>
+</div>

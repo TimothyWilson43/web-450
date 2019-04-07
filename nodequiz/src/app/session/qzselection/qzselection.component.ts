@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class QzselectionComponent implements OnInit {
 
+  section: any = [];
   quizzes: any;
 
   constructor(private http: HttpClient, private router: Router) {

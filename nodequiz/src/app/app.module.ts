@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import {MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule} from "@angular/material";
 
 import { AppComponent } from './app.component';
 import { BaseLayoutComponent } from './shared';
@@ -30,7 +30,11 @@ import { AppRoutes } from './app.routing';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
